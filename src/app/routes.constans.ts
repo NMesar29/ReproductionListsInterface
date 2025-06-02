@@ -3,5 +3,6 @@ export const ROUTES = {
     REPRODUCTION_LISTS: '/reproduction-lists',
     CREATE_LIST: '/create-list',
     FIND_LIST: '/find-list',
-    DELETE_LIST: '/delete-list'
+    DELETE_LIST: '/delete-list',
+    LOGIN_PAGE : '/login'
 }

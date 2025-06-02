@@ -1,0 +1,31 @@
+<body>
+  <div class="centered-container">
+    <section class="table-section">
+      <h1>Listas de Reproducción</h1>
+      <div class="table_component" role="region" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Canciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let lista of reproductionLists">
+              <td>{{ lista.nombre }}</td>
+              <td>{{ lista.descripcion }}</td>
+              <td>
+                <ul>
+                  <li *ngFor="let cancion of lista.canciones">
+                    {{ cancion.titulo }} - {{ cancion.artista }} ({{ cancion.album }}, {{ cancion.anno }})
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</body>

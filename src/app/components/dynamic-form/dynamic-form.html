@@ -1,0 +1,109 @@
+<div *ngIf="!formSubmitted && form">
+    <form class="form-container" [formGroup]="form" (ngSubmit)="submitForm()">
+
+        <div *ngIf="formType === 'newList' && form">
+            <div class="form-row">
+                <div class="form-field">
+                <label for="nombre">Nombre de la Lista</label>
+                <input id="nombre" formControlName="nombre" type="text" />
+                </div>
+                <div class="form-field">
+                <label for="descripcion">Descripción de la Lista</label>
+                <input id="descripcion" formControlName="descripcion" type="text" />
+                </div>
+            </div>
+            
+            <div formArrayName="canciones">
+                <div *ngFor="let cancion of canciones.controls; let i = index" [formGroupName]="i">
+                <fieldset>
+                    <legend>Canción {{ i + 1 }}</legend>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Título</label>
+                            <input formControlName="titulo" type="text" />
+                        </div>
+                        <div class="form-field">
+                            <label>Artista</label>
+                            <input formControlName="artista" type="text" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Álbum</label>
+                            <input formControlName="album" type="text" />
+                        </div>
+                        <div class="form-field">
+                            <label>Año</label>
+                            <input formControlName="anno" type="text" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Género</label>
+                            <input formControlName="genero" type="text" />
+                        </div>
+                    </div>
+                    <div class="button-row">
+                        <button type="button" (click)="removeCancion(i)">Eliminar Canción</button>
+                    </div>
+                </fieldset>
+                </div>
+            </div>
+
+            <button type="button" (click)="addCancion()">+ Agregar Canción</button>
+
+        
+        </div>
+
+        <div *ngIf="formType === 'findList' || formType === 'deleteList'">
+            <section>
+                <label>Nombre de la Lista:</label>
+                <input type="text" formControlName="nombre">
+            </section>
+        </div>
+        <button type="submit" [disabled]="form.invalid">Enviar</button>
+    </form>
+</div>
+
+<div *ngIf="formSubmitted">
+        <div class="lista-info" *ngIf="listaInfo && formType !== 'deleteList'">
+            <h3>Lista de Reproducción</h3>
+            <p><strong>Nombre:</strong> {{ listaInfo.nombre }}</p>
+            <p><strong>Descripción:</strong> {{ listaInfo.descripcion }}</p>
+
+            <h4>Canciones:</h4>
+            <table>
+            <thead>
+                <tr>
+                <th>#</th>
+                <th>Título</th>
+                <th>Artista</th>
+                <th>Álbum</th>
+                <th>Año</th>
+                <th>Género</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of listaInfo.canciones; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ c.titulo }}</td>
+                <td>{{ c.artista }}</td>
+                <td>{{ c.album }}</td>
+                <td>{{ c.anno }}</td>
+                <td>{{ c.genero }}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <div *ngIf="formType === 'deleteList' && listaInfo">
+            <p>{{ listaInfo }}</p>
+        </div>
+        <div *ngIf="errorMessage">
+            <p class="error">{{ errorMessage }}</p>
+        </div>
+
+        <button (click)="formSubmitted = false">Volver</button>
+</div>

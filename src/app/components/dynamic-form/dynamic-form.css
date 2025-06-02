@@ -1,0 +1,166 @@
+.form-container, 
+.lista-info {
+  max-width: 800px;
+  margin: 0 auto 1.5rem auto;
+  padding: 1.5rem 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.form-container {
+  border-radius: 12px; /* más redondeado para formulario */
+}
+
+/* Secciones dentro del form */
+.form-container section {
+  margin-bottom: 1.5rem;
+}
+
+.sub-section {
+  margin-bottom: 1rem;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Inputs */
+input[type="text"] {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Fieldset */
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #f9f9f9;
+}
+
+/* Legend */
+legend {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
+  color: #444;
+}
+
+/* Layout filas y campos */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-field {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Botones */
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.form-container button,
+.lista-info button {
+  font-family: inherit;
+  padding: 0.6rem 1.2rem;
+  background-color: #e0e3e7;
+  border: none;
+  border-radius: 6px;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-container button:hover,
+.lista-info button:hover {
+  background-color: #8693ad;
+}
+
+.form-container button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button[type="button"]:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.lista-info {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.lista-info h3,
+.lista-info h4 {
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #34495e;
+  color: #34495e;
+}
+
+.lista-info h3 {
+  color: #2c3e50;
+}
+
+.lista-info h4 {
+  margin-top: 1.5rem;
+  border-bottom: none;
+  color: #34495e;
+}
+
+.lista-info p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+/* Tabla en lista-info */
+.lista-info table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+.lista-info th,
+.lista-info td {
+  border: 1px solid #ccc;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.lista-info th {
+  background-color: #343a40;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.lista-info tbody tr:nth-child(even) {
+  background-color: #f2f6fc;
+}
